@@ -1,5 +1,10 @@
 # cordova-plugin-ionic-umeng
 
+Umeng统计SDK更新至：
+```
+Android v6.1.2, iOS v4.2.4
+```
+
 ## 集成友盟
 
 ```

@@ -20,6 +20,7 @@ import com.umeng.analytics.MobclickAgent.UMAnalyticsConfig;
 import com.umeng.analytics.game.UMGameAgent;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 public class UMPlugin extends CordovaPlugin {
@@ -60,7 +61,7 @@ public class UMPlugin extends CordovaPlugin {
     }
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         Log.d("UMPlugin", "execute action:" + action);
         if (action.equals("init")) {
             String appKey = args.getString(0);
@@ -68,6 +69,28 @@ public class UMPlugin extends CordovaPlugin {
             MobclickAgent.startWithConfigure(new UMAnalyticsConfig(mContext, appKey, channelId));
             MobclickAgent.setScenarioType(mContext, EScenarioType.E_UM_NORMAL);
             MobclickAgent.onResume(mContext);
+            return true;
+        } else if (action.equals("getDeviceToken")) {  // 自己添加的方法
+            // 从SP里读取出保存的deviceToken
+            // 需要本地代码将deviceToken保存进SP中
+            cordova.getThreadPool().execute(new Runnable() {
+                @Override
+                public void run() {
+                    Context context = cordova.getActivity();
+                    // 读取SP里的DeviceToken
+                    SharedPreferences sharedPreferences= context.getSharedPreferences("test", android.app.Activity.MODE_PRIVATE); 
+                    // 使用getString方法获得value，注意第2个参数是value的默认值 
+                    String deviceToken = sharedPreferences.getString("deviceToken", ""); 
+                    Log.i("Got deviceToken", deviceToken);
+                    if (deviceToken == null || deviceToken.equals("")) {
+                        // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
+                        callbackContext.error("没有获取到deviceToken");
+                    } else {
+                        // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
+                        callbackContext.success(deviceToken);
+                    }
+                }
+            });
             return true;
         } else if (action.equals("onCCEvent")) {
             JSONArray array = args.getJSONArray(0);

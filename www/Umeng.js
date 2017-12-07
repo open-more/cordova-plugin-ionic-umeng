@@ -12,6 +12,16 @@
 	init:function(appKey,channelId) {
         cordova.exec(null, null, "Umeng", "init", [appKey, channelId]);
     },
+
+    /**
+     * 获得推送的DeviceToken
+     * @param success 成功的回调
+     * @param error 失败的回调
+     */
+    getDeviceToken: function(success, error) {
+        cordova.exec(success, error, "Umeng", "getDeviceToken", null);
+    },
+
     /**
      * 结构化事件
      *

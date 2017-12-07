@@ -1,19 +1,22 @@
 {
   "name": "cordova-plugin-ionic-umeng",
-  "version": "3.0.0",
-  "description": "umeng analytics plugin",
-  "cordova": {
-    "id": "Umeng",
-    "platforms": [
-      "ios",
-      "android"
-    ]
-  },
+  "version": "1.0.0",
+  "description": "umeng cordova ionic plugin",
+  "main": "index.js",
   "keywords": [
-    "ecosystem:cordova",
-    "cordova-ios",
-    "cordova-android"
+    "ionic",
+    "cordova",
+    "plugin",
+    "alipay"
   ],
-  "author": "umeng",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-more/cordova-plugin-ionic-alipay.git"
+  },
+  "author": "michaeltang@openmore.org",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/open-more/cordova-plugin-ionic-umeng/issues"
+  },
+  "homepage": "https://github.com/open-more/cordova-plugin-ionic-umeng#readme"
 }

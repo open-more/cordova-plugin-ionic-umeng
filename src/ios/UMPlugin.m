@@ -45,6 +45,21 @@
 
 }
 
+- (void)getDeviceToken:(CDVInvokedUrlCommand*)command {
+    // 从沙盒里读取保存的deviceToken
+    // 需要原生代码端对应保存数据到沙盒里
+    NSString* deviceToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"_DEVICE_TOKEN_"];
+    NSLog(@"Got device token: %@", deviceToken);
+    CDVPluginResult* pluginResult;
+    if (deviceToken != nil && ![deviceToken isEqualToString:@""]) {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:deviceToken];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    } else {
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:@"没有找到deviceToken"];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }
+}
+
 - (void)getDeviceId:(CDVInvokedUrlCommand*)command {
     NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:deviceId];

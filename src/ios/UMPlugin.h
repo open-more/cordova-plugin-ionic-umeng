@@ -11,6 +11,10 @@
 
 @interface UMPlugin : CDVPlugin
 
+
+// 自己添加的获得DeviceToken
+- (void)getDeviceToken:(CDVInvokedUrlCommand*)command;
+
 - (void)getDeviceId:(CDVInvokedUrlCommand*)command;
 
 - (void)onCCEvent:(CDVInvokedUrlCommand*)command;

@@ -29,7 +29,7 @@
      * @param error 失败的回调
      */
     setWindowSoftInputMode: function(modeName) {
-        cordova.exec(null, null, "Umeng", "setWindowSoftInputMode", null);
+        cordova.exec(null, null, "Umeng", "setWindowSoftInputMode", [ modeName ]);
     },
 
 

@@ -70,6 +70,18 @@ public class UMPlugin extends CordovaPlugin {
             MobclickAgent.setScenarioType(mContext, EScenarioType.E_UM_NORMAL);
             MobclickAgent.onResume(mContext);
             return true;
+        } else if (action.equals("setWindowSoftInputMode")) {  // 自己添加的方法
+            cordova.getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    String modeName = args.getString(0);
+                     if(modeName.equals("adjustPan"))
+                        cordova.getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+                    else if(modeName.equals("adjustResize"))
+                        cordova.getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+                }
+            });
+            return true;
         } else if (action.equals("getDeviceToken")) {  // 自己添加的方法
             // 从SP里读取出保存的deviceToken
             // 需要本地代码将deviceToken保存进SP中

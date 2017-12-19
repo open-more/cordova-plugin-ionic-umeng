@@ -23,6 +23,17 @@
     },
 
     /**
+     * 设置WindowMode
+     * 只有安卓有此功能
+     * @param modeName adjustPan|adjustResize
+     * @param error 失败的回调
+     */
+    setWindowSoftInputMode: function(modeName) {
+        cordova.exec(null, null, "Umeng", "setWindowSoftInputMode", null);
+    },
+
+
+    /**
      * 结构化事件
      *
      * @param evenArray

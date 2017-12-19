@@ -28,6 +28,19 @@
     </platform>
     <!-- android -->
     <platform name="android">
+        <!-- UmengPush start -->
+        <source-file src="src/android/libs/alicloud-android-sdk-httpdns-1.0.7.jar" target-dir="libs" />
+        <source-file src="src/android/libs/com.umeng.message_3.1.5a.jar" target-dir="libs" />
+        <source-file src="src/android/libs/utdid4all-1.1.5.3_proguard.jar" target-dir="libs" />
+        <source-file src="src/android/libs/alicloud-android-sdk-httpdns-1.0.7.jar" target-dir="libs" />
+        <source-file src="src/android/libs/alicloud-android-sdk-httpdns-1.0.7.jar" target-dir="libs" />
+        <source-file src="src/android/libs/armeabi/alicloud-android-sdk-httpdns-1.0.7.jar" target-dir="libs" />
+        <source-file src="src/android/libs/x86/alicloud-android-sdk-httpdns-1.0.7.jar" target-dir="libs" />
+        <source-file src="src/android/libs/alicloud-android-sdk-httpdns-1.0.7.jar" target-dir="libs" />
+        <source-file src="src/android/libs/alicloud-android-sdk-httpdns-1.0.7.jar" target-dir="libs" />
+        <source-file src="src/android/libs/alicloud-android-sdk-httpdns-1.0.7.jar" target-dir="libs" />
+        <!-- UmengPush end -->
+
         <source-file src="src/android/umeng-analytics-v6.1.2.jar" target-dir="libs" />
         <source-file src="src/android/UMPlugin.java" target-dir="src/com/umeng/plugin" />
         

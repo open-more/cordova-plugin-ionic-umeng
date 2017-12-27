@@ -20,8 +20,9 @@
                 <param name="ios-package" value="UMPlugin"/>
             </feature>
         </config-file>
-        <source-file src="src/ios/UMMobClick.framework" framework="true" />
+
         <source-file src="src/ios/libUMessage_Sdk_1.5.0a.a" framework="true" />
+        <framework src="src/ios/lib/UMMobClick.framework" custom="true"/>
         <framework src="CoreTelephony.framework" />
         <framework src="UserNotifications.framework" />
         <framework src="libsqlite3.tbd"/>

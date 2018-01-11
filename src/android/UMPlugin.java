@@ -90,7 +90,7 @@ public class UMPlugin extends CordovaPlugin {
                 public void run() {
                     Context context = cordova.getActivity();
                     // 读取SP里的DeviceToken
-                    SharedPreferences sharedPreferences= context.getSharedPreferences("test", android.app.Activity.MODE_PRIVATE); 
+                    SharedPreferences sharedPreferences= context.getSharedPreferences("_DEVICE_TOKEN_", android.app.Activity.MODE_PRIVATE); 
                     // 使用getString方法获得value，注意第2个参数是value的默认值 
                     String deviceToken = sharedPreferences.getString("deviceToken", ""); 
                     Log.i("Got deviceToken", deviceToken);
